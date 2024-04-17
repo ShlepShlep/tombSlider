@@ -123,6 +123,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &282061452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: 90813f99205f41e4da9b9355849eaf64, type: 3}
+  m_PrefabInstance: {fileID: 1482798021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &282061456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282061452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a998702818688b49a9c6459b92931d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: SampleScene
 --- !u!1 &282077721 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: 74c1c6a02212f644dbe173262e8cff30, type: 3}
@@ -253,6 +271,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -303,7 +322,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.4172196
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -328,12 +347,27 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.78, y: 0, z: -10}
+  m_LocalPosition: {x: -7.83, y: 0.83, z: -3.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2574f1189eed74a929b03697b1994f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1845581892}
+  offset: {x: 0, y: 0, z: -3.05}
+  smoothness: 0.0111
 --- !u!1001 &604839808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -472,7 +506,7 @@ PrefabInstance:
       addedObject: {fileID: 1845581888}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: c07f901cfdccb854b80201ab444d5984, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1845581889}
+      addedObject: {fileID: 1845581893}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: c07f901cfdccb854b80201ab444d5984, type: 3}
 --- !u!1 &948027404 stripped
 GameObject:
@@ -849,7 +883,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 90813f99205f41e4da9b9355849eaf64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 282061456}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 90813f99205f41e4da9b9355849eaf64, type: 3}
 --- !u!1 &1530969947 stripped
 GameObject:
@@ -2771,7 +2808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5eed42713e45b439344258e860ebc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  landParticles: {fileID: 6988865571123722248, guid: edc688f0d936f184389cb86cf530c6a4, type: 3}
+  speed: 20
   canDash: 0
   wallLayer:
     serializedVersion: 2
@@ -2779,6 +2817,7 @@ MonoBehaviour:
   coin: {fileID: 0}
   audio: {fileID: 1590232699}
   clip: {fileID: 8300000, guid: 9072bcb053dd1434a9039a66d7a619cd, type: 3}
+  hasLanded: 0
 --- !u!58 &1845581888
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2814,9 +2853,14 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45833334
---- !u!120 &1845581889
-LineRenderer:
-  serializedVersion: 2
+--- !u!4 &1845581892 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: c07f901cfdccb854b80201ab444d5984, type: 3}
+  m_PrefabInstance: {fileID: 617872407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &1845581893
+TrailRenderer:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2856,12 +2900,11 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  m_Time: 0.15
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -2874,22 +2917,13 @@ LineRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.9779517
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9843138, g: 0.9490197, b: 0.21176472, a: 1}
-      key1: {r: 0, g: 0, b: 0, a: 1}
+      key0: {r: 0.9450981, g: 0.91372555, b: 0.2627451, a: 1}
+      key1: {r: 1, g: 0, b: 0.9490197, a: 0.08627451}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2923,9 +2957,10 @@ LineRenderer:
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
+  m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
-  m_UseWorldSpace: 1
-  m_Loop: 0
+  m_Autodestruct: 0
+  m_Emitting: 1
   m_ApplyActiveColorSpace: 1
 --- !u!1001 &1867863257
 PrefabInstance:
